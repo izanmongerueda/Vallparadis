@@ -19,6 +19,8 @@ return new class extends Migration
             $table-> string ('file_name');
             $table-> string ('file');
             $table->timestamps();
+            
+            $table->foreign('professional_id')->references('professional_id')->on('professionals')->onDelete('cascade');
         });
     }
 

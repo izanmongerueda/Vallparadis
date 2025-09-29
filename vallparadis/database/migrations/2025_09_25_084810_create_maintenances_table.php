@@ -11,17 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('complementary_services', function (Blueprint $table) {
-            $table->id('complementary_service_id');
-            $table-> unsignedBigInteger('center_id');
-            $table-> string ('type');
-            $table-> dateTime ('start_date');
-            $table-> string ('manager');
-            $table-> string ('contact');
-            $table-> text ('note');
+        Schema::create('maintenances', function (Blueprint $table) {
+            $table->id('maintenance_id');
+            $table-> unsignedBigInteger ('center_id');
+            $table-> date ('open_date');
+            $table-> text ('description');
+            $table-> string ('responsible');
             $table-> string ('file');
             $table->timestamps();
-
+            
             $table->foreign('center_id')->references('center_id')->on('centers')->onDelete('cascade');
         });
     }
@@ -31,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('complementary_services');
+        Schema::dropIfExists('maintenances');
     }
 };

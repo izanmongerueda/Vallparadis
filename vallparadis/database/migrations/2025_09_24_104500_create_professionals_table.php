@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('professionals', function (Blueprint $table) {
             $table->id('professional_id');
-            $table-> unsignedBigInteger ('centers_id');
+            $table-> unsignedBigInteger ('center_id');
             $table-> string ('first_name');
             $table-> string ('last_name');
             $table-> string ('phone');
@@ -21,6 +21,8 @@ return new class extends Migration
             $table-> string ('adress');
             $table-> string ('employments_status');
             $table->timestamps();
+            
+            $table->foreign('center_id')->references('center_id')->on('centers')->onDelete('cascade');
         });
     }
 

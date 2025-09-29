@@ -18,9 +18,10 @@ return new class extends Migration
             $table -> unsignedBigInteger ('professional_id')->nullable();
             $table -> string ('role');
             $table -> string ('status');
-            $table -> dateTime ('created_at');
             $table -> dateTime ('last_login');
             $table->timestamps();
+
+            $table->foreign('professional_id')->references('professional_id')->on('professionals')->onDelete('cascade');
         });
     }
 

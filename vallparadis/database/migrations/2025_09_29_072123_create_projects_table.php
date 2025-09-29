@@ -11,23 +11,19 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('trainings', function (Blueprint $table) {
-            $table->id('training_id');
+        Schema::create('projects', function (Blueprint $table) {
+            $table->id('project_id');
             $table-> unsignedBigInteger ('center_id');
-            $table-> unsignedBigInteger ('user_id');
-            $table-> string ('code');
-            $table-> integer ('hours');
             $table-> string ('type');
-            $table-> string ('modality');
             $table-> string ('name');
-            $table-> string ('attendee');
-            $table-> dateTime ('start_date');
-            $table-> dateTime ('end_date');
-            $table-> string ('certificate');
+            $table-> date ('start_date');
+            $table-> string ('manager');
+            $table-> text ('description');
+            $table-> text ('notes');
+            $table-> string ('file');
             $table->timestamps();
-
+            
             $table->foreign('center_id')->references('center_id')->on('centers')->onDelete('cascade');
-            $table->foreign('user_id')->references('user_id')->on('users')->onDelete('cascade');
         });
     }
 
@@ -36,6 +32,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('trainings');
+        Schema::dropIfExists('projects');
     }
 };

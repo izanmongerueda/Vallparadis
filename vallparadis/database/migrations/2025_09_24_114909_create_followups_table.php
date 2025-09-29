@@ -18,9 +18,9 @@ return new class extends Migration
             $table-> date ('date');
             $table-> string ('subject');
             $table-> text ('comment');
-            $table-> string ('created_by');
-            $table-> unsignedBigInteger ('professional_id');
+            $table-> unsignedBigInteger ('created_by');
             $table->timestamps();
+            
             $table->foreign('professional_id')->references('professional_id')->on('professionals')->onDelete('cascade');
             $table->foreign('created_by')->references('professional_id')->on('professionals')->onDelete('cascade');
         });

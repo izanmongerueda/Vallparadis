@@ -13,12 +13,13 @@ return new class extends Migration
     {
         Schema::create('uniform_renewals', function (Blueprint $table) {
             $table->id('renewal_id');
-            $table-> unsingedBigInteger ('professional_id');
+            $table-> unsignedBigInteger ('professional_id');
             $table-> date ('date');
             $table-> string ('delivered_by');
             $table-> string ('material');
             $table-> string ('file');
             $table->timestamps();
+            
             $table->foreign('professional_id')->references('professional_id')->on('professionals')->onDelete('cascade');
         });
     }

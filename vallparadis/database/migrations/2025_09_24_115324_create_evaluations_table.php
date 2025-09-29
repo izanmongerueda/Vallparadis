@@ -20,6 +20,7 @@ return new class extends Migration
             $table-> text ('notes');
             $table-> string ('files');
             $table->timestamps();
+            
             $table->foreign('professional_id')->references('professional_id')->on('professionals')->onDelete('cascade');
             $table->foreign('evaluator_id')->references('professional_id')->on('professionals')->onDelete('cascade');
         });
