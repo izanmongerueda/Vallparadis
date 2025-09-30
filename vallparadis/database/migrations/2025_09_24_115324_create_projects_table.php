@@ -14,16 +14,18 @@ return new class extends Migration
         Schema::create('projects', function (Blueprint $table) {
             $table->id('project_id');
             $table-> unsignedBigInteger ('center_id');
-            $table-> string ('type');
+            $table-> unsignedBigInteger ('professional_id');
+            $table-> string ('type'); //projecto o comission
             $table-> string ('name');
             $table-> date ('start_date');
             $table-> string ('manager');
             $table-> text ('description');
             $table-> text ('notes');
-            $table-> string ('file');
+            //$table-> string ('file');
             $table->timestamps();
             
             $table->foreign('center_id')->references('center_id')->on('centers')->onDelete('cascade');
+             $table->foreign('professional_id')->references('professional_id')->on('professionals')->onDelete('cascade');
         });
     }
 

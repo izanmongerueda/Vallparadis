@@ -14,12 +14,16 @@ return new class extends Migration
         Schema::create('professionals', function (Blueprint $table) {
             $table->id('professional_id');
             $table-> unsignedBigInteger ('center_id');
+            $table-> string ('username');
+            $table-> string ('password');
             $table-> string ('first_name');
             $table-> string ('last_name');
             $table-> string ('phone');
             $table-> string ('email');
             $table-> string ('adress');
             $table-> string ('employments_status');
+            $table-> string ('taquillas');
+            $table-> string ('clave');
             $table->timestamps();
             
             $table->foreign('center_id')->references('center_id')->on('centers')->onDelete('cascade');

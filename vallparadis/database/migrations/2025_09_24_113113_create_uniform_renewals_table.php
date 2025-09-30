@@ -18,6 +18,7 @@ return new class extends Migration
             $table-> string ('delivered_by');
             $table-> string ('material');
             $table-> string ('file');
+            $table-> string('carve');
             $table->timestamps();
             
             $table->foreign('professional_id')->references('professional_id')->on('professionals')->onDelete('cascade');

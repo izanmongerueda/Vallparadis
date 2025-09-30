@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('resources', function (Blueprint $table) {
             $table->id('resource_id');
             $table->unsignedBigInteger ('professional_id');
-            $table->string ('type');
+            $table->string ('type'); //taquilla,clave
             $table->string ('detail');
             $table-> date ('assigned_date');           
             $table->timestamps();

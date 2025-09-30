@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('documents', function (Blueprint $table) {
             $table->id('document_id');
             $table-> unsignedBigInteger ('professional_id');
+            $table-> unsignedBigInteger ('project_id');
             $table-> string ('type');
             $table-> date ('date');
             $table-> string ('file_name');
@@ -21,6 +22,7 @@ return new class extends Migration
             $table->timestamps();
             
             $table->foreign('professional_id')->references('professional_id')->on('professionals')->onDelete('cascade');
+            $table->foreign('project_id')->references('project_id')->on('projects')->onDelete('cascade');
         });
     }
 
